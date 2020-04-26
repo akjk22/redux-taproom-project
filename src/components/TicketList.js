@@ -2,7 +2,7 @@ import React from "react";
 import Ticket from "./Ticket.js";
 import PropTypes from "prop-types";
 
-function TicketList(props) { //we add props as a parameter
+function TicketList(props) { 
     return (
 
         <React.Fragment>
