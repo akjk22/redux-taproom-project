@@ -4,10 +4,13 @@ import TicketList from './TicketList';
 
 class TicketControl extends React.Component {
   
+
   constructor(props) {
     super(props)
     this.state = {
-      formVisibleOnPage: false
+      formVisibleOnPage: false,
+      // Move masterTicketList into State
+      masterTicketList: []
     };
     this.handleClick = this.handleClick.bind(this);
   }
@@ -17,20 +20,26 @@ class TicketControl extends React.Component {
       formVisibleOnPage: !prevState.formVisibleOnPage
     }));
   }
+// this is new code
+  handleAddingNewTicketToList = (newTicket) => {
+    const newMasterTicketList = this.state.masterTicketList.concat(newTicket);
+    this.setState({masterTicketList: newMasterTicketList,
+                  formVisibleOnPage: false });
+  }
 
   render(){
-    let currentVisibleState = null;
+    let currentlyVisibleState = null;
     let buttonText = null;
     if (this.state.formVisibleOnPage) {
-      currentVisibleState = <NewTicketForm />
-      buttonText = "Return to Ticket List";
+      currentlyVisibleState = <NewTicketForm onNewTicketCreation={this.handleAddingNewTicketToList} />  // new code in this line 
     } else {
-      currentVisibleState = <TicketList />
+      // passing master ticket list down as a prop to TicketList 
+      currentlyVisibleState = <TicketList ticketList={this.state.masterTicketList} />;
       buttonText  = "Add Ticket";
     }
     return (
       <React.Fragment>
-        {currentVisibleState}
+        {currentlyVisibleState}
         <button onClick={this.handleClick}>{buttonText}</button>
       </React.Fragment>
     );
