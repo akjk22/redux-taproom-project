@@ -1,13 +1,16 @@
 import React from "react";
 import Header from "./Header";
-import TicketControl from "./TicketControl";
+// import Merch from "./Merch";
+import MerchList from "./MerchList";
+// import MerchControl from "./MerchControl";
 
 function App(){
   return (
     <React.Fragment>
       <Header />
-     {/* <TicketList /> */}
-     <TicketControl />
+      <MerchList />
+      {/* <Merch /> */}
+     {/* <MerchControl /> */}
     </React.Fragment>
   );
 }
