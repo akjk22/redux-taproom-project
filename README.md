@@ -66,3 +66,18 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+Our application will be an SPA (single-page application) that shows the KegList component. However, when a user clicks the "Add Keg" button, the KegList component will be hidden and the user will see the NewKegForm component instead.
+
+That means both the KegList component and the NewKegForm component need to have the same parent - but only one of the components will be showing at a time.
+
+In order to toggle between these two components, KegControl will need to have local state to determine which of the following states the page should be in:
+
+KegList showing and NewKegForm hidden;
+NewKegForm showing and KegList hidden.
+We will take care of toggling between these components (our local state) before we start building our shared state. However, it's important to have our plan in place so let's take a look at which of these components will need to share state:
+
+KegList will need access to the master list of kegs so it can read and display them;
+NewKegForm will need access to the master list of kegs so it can ensure new kegs can get passed into that master list.
+
+So where should this shared state go? Fortunately, this is a simple question to answer. Both components have the same parent. KegControl is the lowest common ancestor to which we can lift our application state.
