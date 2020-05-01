@@ -15,7 +15,7 @@ function Keg(props){
       <h3>{props.brand}</h3> 
       <p>{props.name}</p>
       <p>{props.price}</p>
-      <p>{props.alcholContent}</p>
+      <p>{props.alcoholContent}</p>
       <div>
         <img src={props.img} alt={props.name} style={kegImgStyles}/>
       </div>
