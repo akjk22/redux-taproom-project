@@ -1,16 +1,16 @@
 import React from "react";
 import Header from "./Header";
-// import Merch from "./Merch";
-import MerchList from "./MerchList";
-// import MerchControl from "./MerchControl";
+// import Keg from "./Keg";
+import KegList from "./MerchList";
+// import KegControl from "./KegControl";
 
 function App(){
   return (
     <React.Fragment>
       <Header />
-      <MerchList />
-      {/* <Merch /> */}
-     {/* <MerchControl /> */}
+      <KegList />
+      {/* <Keg /> */}
+     {/* <KegControl /> */}
     </React.Fragment>
   );
 }

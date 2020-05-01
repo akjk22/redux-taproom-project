@@ -1,13 +1,13 @@
 import React from 'react';
-import { merchList } from './fakeMerchService';
+import { KegList } from './fakeKegService';
 
 
-class MerchControl extends React.Component {
+class KegControl extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      card: merchList(),
+      card: KegList(),
      
     };
     // this.handleClick = this.handleClick.bind(this);
@@ -34,4 +34,4 @@ class MerchControl extends React.Component {
 
 }
 
-export default MerchControl;
+export default KegControl;

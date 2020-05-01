@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 
 // import {merchList} from './fakeMerchService';
 
-function Merch(props){
-  const merchImgStyles = {
+function Keg(props){
+  const kegImgStyles = {
     width: '400px',
     height: '400px',
   }
@@ -12,11 +12,12 @@ function Merch(props){
   return (
     <React.Fragment>
     <div>
-      <h3>{props.name}</h3> 
-      <p>{props.description}</p>
-      <p>{props.quantity}</p>
+      <h3>{props.brand}</h3> 
+      <p>{props.name}</p>
+      <p>{props.price}</p>
+      <p>{props.alcholContent}</p>
       <div>
-        <img src={props.img} alt={props.name} style={merchImgStyles}/>
+        <img src={props.img} alt={props.name} style={kegImgStyles}/>
       </div>
     </div>
     </React.Fragment>
@@ -26,10 +27,11 @@ function Merch(props){
   Merch.propTypes = {
     id: PropTypes.number,
     name: PropTypes.string,
-    description: PropTypes.string,
-    quantity: PropTypes.number,
+    brand: PropTypes.string,
+    price: PropTypes.number,
+    alcholContent: PropTypes.number,
     img: PropTypes.string
   };
 
-export default Merch;
+export default Keg;
 
