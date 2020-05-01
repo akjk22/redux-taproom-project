@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-// import {merchList} from './fakeMerchService';
+// import {KegList} from './fakeKegService';
 
 function Keg(props){
   const kegImgStyles = {
@@ -24,7 +24,7 @@ function Keg(props){
   );
   }
 
-  Merch.propTypes = {
+  Keg.propTypes = {
     id: PropTypes.number,
     name: PropTypes.string,
     brand: PropTypes.string,

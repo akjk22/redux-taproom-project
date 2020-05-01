@@ -4,7 +4,7 @@ import hefImg from './hef.jpg';
 import lagunitasImg from './lagunitas.jpg';
 import rogueImg from './rogue.jpg';
 import avidImg from './avid.jpeg';
-import pfriemImg from './pfriem.jpg';
+import pfriemImg from './pfriem.png';
 
 
 const masterKegList = [
