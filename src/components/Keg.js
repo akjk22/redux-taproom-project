@@ -28,7 +28,7 @@ function Keg(props){
     id: PropTypes.number,
     name: PropTypes.string,
     brand: PropTypes.string,
-    price: PropTypes.number,
+    price: PropTypes.string,
     alcholContent: PropTypes.number,
     img: PropTypes.string
   };

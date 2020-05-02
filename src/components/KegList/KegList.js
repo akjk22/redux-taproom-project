@@ -56,7 +56,7 @@ function KegList(){
   <React.Fragment>
     <hr/>
     {masterKegList.map((keg, index) =>
-      <Keg id={keg.id}
+      <Keg 
         name={keg.name}
         brand={keg.brand}
         price={keg.price}
