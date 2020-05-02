@@ -1,7 +1,6 @@
 import React from 'react';
 import NewKegForm from './NewKegForm';
 import KegList from "./KegList/KegList";
-import NewKegForm from './NewKegForm';
 // import { KegList } from './fakeKegService';
 
 
