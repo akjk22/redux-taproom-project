@@ -5,7 +5,7 @@ const masterKegList = [
     brand: 'Widmer',
     price: '$140',
     alcoholContent: '5%',
-    img: hoodieImg
+    // img: hoodieImg
   },
   {
     id: '2',
@@ -13,7 +13,7 @@ const masterKegList = [
     brand: 'Lagunitas',
     price: '$160',
     alcoholContent: '7.5%',
-    img: shirtImg
+    // img: shirtImg
   },
   {
     id: '3',
@@ -21,7 +21,7 @@ const masterKegList = [
     brand: 'Rogue',
     price: '$220',
     alcoholContent: '5.8%',
-    img: shirtImg
+    // img: shirtImg
   },
   {
     id: '4',
@@ -29,7 +29,7 @@ const masterKegList = [
     brand: 'Avid Cider Co.',
     price: '$180',
     alcoholContent: '6%',
-    img: shirtImg
+    // img: shirtImg
   },
   {
     id: '5',
@@ -37,10 +37,10 @@ const masterKegList = [
     brand: 'pFriem',
     price: '$155',
     alcoholContent: '5.3%',
-    img: shirtImg
+    // img: shirtImg
   }
 ];
 
-export function KegList(){
+export function FakeKegList(){
     return masterKegList;
 }

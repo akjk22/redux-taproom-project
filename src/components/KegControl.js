@@ -3,7 +3,7 @@ import NewKegForm from './NewKegForm';
 import KegList from "./KegList/KegList";
 import KegDetail from "./KegDetail";
 import EditKegForm from './EditKegForm';
-// import { KegList } from './fakeKegService';
+import { FakeKegList } from './fakeKegService';
 
 class KegControl extends React.Component {
 
@@ -11,7 +11,7 @@ class KegControl extends React.Component {
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      masterKegList: [],
+      masterKegList: FakeKegList([]),
       selectedKeg: null,
       editing: false
     };
