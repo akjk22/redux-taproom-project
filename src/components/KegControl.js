@@ -70,6 +70,9 @@ handleEditingKegInList = (kegToEdit) => {
   render(){
     let currentlyVisibleState = null;
     let buttonText = null; 
+    let optionTemplate = this.state.masterKegList.map(v => (
+      <option value={v.id}>{v.name}</option>
+    ));
     if (this.state.editing ) {      
       currentlyVisibleState = <EditKegForm keg = {this.state.selectedKeg} onEditKeg = {this.handleEditingKegInList} />
       buttonText = "Return to Keg List"; 
@@ -80,7 +83,11 @@ handleEditingKegInList = (kegToEdit) => {
       currentlyVisibleState = <NewKegForm onNewKegCreation={this.handleAddingNewKegToList} />;
       // buttonText = "Return to Keg List";
     } else {
-      currentlyVisibleState = <KegList kegList={this.state.masterKegList} onKegSelection={this.handleChangingSelectedKeg}/>;
+      // currentlyVisibleState = <KegList kegList={this.state.masterKegList} onKegSelection={this.handleChangingSelectedKeg}/>;
+      currentlyVisibleState = <select>
+        <KegList value={this.state.masterKegList} onKegSelection={this.handleChangingSelectedKeg}/>
+        {optionTemplate}
+        </select> ;
       buttonText = "Add Keg";
     }
     

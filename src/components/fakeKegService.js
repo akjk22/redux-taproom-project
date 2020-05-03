@@ -4,7 +4,7 @@ const masterKegList = [
     name: 'Hefeweizen',
     brand: 'Widmer',
     price: '$140',
-    alcoholContent: '5%',
+    alcohol: '5%',
     // img: hoodieImg
   },
   {
@@ -12,7 +12,7 @@ const masterKegList = [
     name: 'A Little Sumpin Sumpin',
     brand: 'Lagunitas',
     price: '$160',
-    alcoholContent: '7.5%',
+    alcohol: '7.5%',
     // img: shirtImg
   },
   {
@@ -20,7 +20,7 @@ const masterKegList = [
     name: 'Chocolate Stout Nitro',
     brand: 'Rogue',
     price: '$220',
-    alcoholContent: '5.8%',
+    alcohol: '5.8%',
     // img: shirtImg
   },
   {
@@ -28,7 +28,7 @@ const masterKegList = [
     name: 'Organic Dry Cider',
     brand: 'Avid Cider Co.',
     price: '$180',
-    alcoholContent: '6%',
+    alcohol: '6%',
     // img: shirtImg
   },
   {
@@ -36,7 +36,7 @@ const masterKegList = [
     name: 'Vienna Lager',
     brand: 'pFriem',
     price: '$155',
-    alcoholContent: '5.3%',
+    alcohol: '5.3%',
     // img: shirtImg
   }
 ];
