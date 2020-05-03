@@ -83,18 +83,26 @@ handleEditingKegInList = (kegToEdit) => {
       currentlyVisibleState = <NewKegForm onNewKegCreation={this.handleAddingNewKegToList} />;
       // buttonText = "Return to Keg List";
     } else {
-      // currentlyVisibleState = <KegList kegList={this.state.masterKegList} onKegSelection={this.handleChangingSelectedKeg}/>;
-      currentlyVisibleState = <select>
-        <KegList value={this.state.masterKegList} onKegSelection={this.handleChangingSelectedKeg}/>
-        {optionTemplate}
-        </select> ;
+      currentlyVisibleState = <KegList kegList={this.state.masterKegList} onKegSelection={this.handleChangingSelectedKeg}/>;
+      // currentlyVisibleState = <select>
+      //   <KegList value={this.state.masterKegList} onKegSelection={this.handleChangingSelectedKeg}/>
+      //   {optionTemplate}
+      //   </select> ;
       buttonText = "Add Keg";
     }
     
     return (
       <React.Fragment>
         {currentlyVisibleState}
+        <label>
+        Pick your favorite Number:
+        <select value={this.state.value} onChange={this.handleChange}>
+          {optionTemplate}
+        </select>
+      </label>
+      
         <button onClick={this.handleClick}>{buttonText}</button>
+
       </React.Fragment>
     );
   }
