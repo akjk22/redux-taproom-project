@@ -1,10 +1,10 @@
 import React from 'react';
 import Keg from '../Keg';
-import hefImg from './hef.jpg';
-import lagunitasImg from './lagunitas.jpg';
-import rogueImg from './rogue.jpg';
-import avidImg from './avid.jpeg';
-import pfriemImg from './pfriem.png';
+// import hefImg from './hef.jpg';
+// import lagunitasImg from './lagunitas.jpg';
+// import rogueImg from './rogue.jpg';
+// import avidImg from './avid.jpeg';
+// import pfriemImg from './pfriem.png';
 import PropTypes from "prop-types";
 
 
@@ -51,20 +51,21 @@ import PropTypes from "prop-types";
 //   }
 // ];
 
-function KegList(props){  
+function KegList(props) {  
   
   return (
   <React.Fragment>
-    <hr/>
+    <hr />
     {props.kegList.map((keg) =>
       <Keg 
         whenKegClicked = { props.onKegSelection }
         name={keg.name}
         brand={keg.brand}
         price={keg.price}
-        alcoholContent={keg.alcoholContent}
+        alcohol={keg.alcohol}
+        description={keg.description}
         id={keg.id}
-        img={keg.img}
+        key={keg.id}
         />
     )}
   </React.Fragment>

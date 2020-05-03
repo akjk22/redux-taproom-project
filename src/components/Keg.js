@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 // import {KegList} from './fakeKegService';
 
 function Keg(props){
-  const kegImgStyles = {
-    width: '400px',
-    height: '400px',
-  }
+  // const kegImgStyles = {
+  //   width: '400px',
+  //   height: '400px',
+  // }
 
   return (
     <React.Fragment>
@@ -15,24 +15,25 @@ function Keg(props){
       <h3>{props.brand}</h3> 
       <p>{props.name}</p>
       <p>{props.price}</p>
-      <p>{props.alcoholContent}</p>
-      <div>
+      <p>{props.alcohol}</p>
+      <p>{props.description}</p>
+      {/* <div>
         <img src={props.img} alt={props.name} style={kegImgStyles}/>
-      </div>
+      </div> */}
     </div>
     </React.Fragment>
   );
   }
 
   Keg.propTypes = {
-    id: PropTypes.number,
     name: PropTypes.string,
     brand: PropTypes.string,
     price: PropTypes.string,
-    alcholContent: PropTypes.number,
+    alcohol: PropTypes.string,
+    description: PropTypes.string,
     id: PropTypes.string,
-    whenKegClicked: PropTypes.func,
-    img: PropTypes.string
+    whenKegClicked: PropTypes.func
+    // img: PropTypes.string
   };
 
 export default Keg;
