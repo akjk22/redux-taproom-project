@@ -93,13 +93,14 @@ handleEditingKegInList = (kegToEdit) => {
     
     return (
       <React.Fragment>
-        {currentlyVisibleState}
         <label>
-        Pick your favorite Number:
-        <select value={this.state.value} onChange={this.handleChange}>
-          {optionTemplate}
-        </select>
-      </label>
+          Pick a Keg:
+          <select value={this.state.value} onChange={this.handleChange}>
+            {optionTemplate}
+          </select>
+        </label>
+        {currentlyVisibleState}
+      
       
         <button onClick={this.handleClick}>{buttonText}</button>
 
