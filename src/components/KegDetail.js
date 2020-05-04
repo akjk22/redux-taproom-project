@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 
 function KegDetail(props){
   const { keg, onClickingDelete } = props;
+  
+
 
   return (
     <React.Fragment>
@@ -14,6 +16,10 @@ function KegDetail(props){
       <p>{keg.description}</p>
       <button onClick={ props.onClickingEdit }>Update Keg</button>
       <button onClick={()=> onClickingDelete(keg.id) }>Delete Keg</button>
+      <button onClick={ props.onClickingIncrement }>Increment</button>
+      <button onClick={ props.onClickingDecrement }>Decrement</button>
+      <p>Pint Count: {props.count}</p>
+ 
       {/* <div>
         <img src={props.img} alt={props.name} />
       </div> */}
@@ -25,7 +31,9 @@ function KegDetail(props){
 KegDetail.propTypes = {
   keg: PropTypes.object,
   onClickingDelete: PropTypes.func,
-  onClickingEdit: PropTypes.func
+  onClickingEdit: PropTypes.func,
+  onClickingIncrement: PropTypes.func,
+  onClickingDecrement: PropTypes.func
 };
 
 export default KegDetail;

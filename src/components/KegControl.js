@@ -4,6 +4,7 @@ import KegList from "./KegList/KegList";
 import KegDetail from "./KegDetail";
 import EditKegForm from './EditKegForm';
 import { FakeKegList } from './fakeKegService';
+// import DropDown from './DropDown';
 
 class KegControl extends React.Component {
 
@@ -13,8 +14,10 @@ class KegControl extends React.Component {
       formVisibleOnPage: false,
       masterKegList: FakeKegList([]),
       selectedKeg: null,
-      editing: false
+      editing: false, 
+      count: 124
     };
+ 
   }
 
   handleClick = () => {
@@ -67,43 +70,85 @@ handleEditingKegInList = (kegToEdit) => {
     });
 }
 
+
+handleDeletingKeg = (id) => {
+  const newMasterKegList = this.state.masterKegList.filter(keg => keg.id !== id);
+  this.setState({
+    masterKegList: newMasterKegList,
+    selectedKeg: null
+  });
+}
+
+
+// handleIncrementPint = (pintCount) => {
+//   const editedMasterKegCount = this.state.masterKegList
+//   .filter(keg => keg.id !== this.state.selectedKeg.id)
+//   .concat(pintCount);
+//   this.setState({
+//   masterKegList: editedMasterKegCount,
+//   count: this.state.count + 1 
+//   });
+// }
+handleIncrementPint = (id) => {
+  const selectedKeg = this.state.masterKegList.map(keg => keg.id === id)[0];
+  this.setState({selectedKeg: selectedKeg,
+    count: this.state.count + 1 });
+}
+
+handleDecrementPint = () => {
+  this.setState({ count: this.state.count - 1 });
+};
+
+//handle dropdown form submit
+
+// handleChange(event) {
+//   this.setState({value: event.target.value});
+// }
+
+// handleSubmit(event) {
+//   alert('A name was submitted: ' + this.state.value);
+//   event.preventDefault();
+// }
+
+
   render(){
     let currentlyVisibleState = null;
     let buttonText = null; 
     let optionTemplate = this.state.masterKegList.map(v => (
       <option value={v.id}>{v.name}</option>
     ));
-    if (this.state.editing ) {      
+  if (this.state.editing ) {      
       currentlyVisibleState = <EditKegForm keg = {this.state.selectedKeg} onEditKeg = {this.handleEditingKegInList} />
       buttonText = "Return to Keg List"; 
     } else if (this.state.selectedKeg != null) {
-      currentlyVisibleState = <KegDetail keg = {this.state.selectedKeg} onClickingDelete = {this.handleDeletingKeg} onClickingEdit = {this.handleEditClick} />
+      currentlyVisibleState = <KegDetail keg = {this.state.selectedKeg} onClickingDelete = {this.handleDeletingKeg} onClickingEdit = {this.handleEditClick} onClickingIncrement = {this.handleIncrementPint.bind(this)} onClickingDecrement = {this.handleDecrementPint.bind(this)} count = {this.state.count}/>
       buttonText = "Return to Keg List";
     } else if (this.state.formVisibleOnPage) { 
       currentlyVisibleState = <NewKegForm onNewKegCreation={this.handleAddingNewKegToList} />;
       // buttonText = "Return to Keg List";
     } else {
-      currentlyVisibleState = <KegList kegList={this.state.masterKegList} onKegSelection={this.handleChangingSelectedKeg}/>;
-      // currentlyVisibleState = <select>
-      //   <KegList value={this.state.masterKegList} onKegSelection={this.handleChangingSelectedKeg}/>
-      //   {optionTemplate}
-      //   </select> ;
+      currentlyVisibleState =
+      <KegList kegList={this.state.masterKegList} onKegSelection={this.handleChangingSelectedKeg}/>;
       buttonText = "Add Keg";
     }
     
     return (
       <React.Fragment>
+       <form>
         <label>
           Pick a Keg:
           <select value={this.state.value} onChange={this.handleChange}>
-            {optionTemplate}
+          {optionTemplate}
+          
           </select>
         </label>
+        </form>
+        <button type="submit" value="Submit">See Keg</button>
+     
         {currentlyVisibleState}
-      
-      
+  
         <button onClick={this.handleClick}>{buttonText}</button>
-
+  
       </React.Fragment>
     );
   }
