@@ -4,7 +4,20 @@ import KegList from "./KegList/KegList";
 import KegDetail from "./KegDetail";
 import EditKegForm from './EditKegForm';
 import { FakeKegList } from './fakeKegService';
+import './KegControl.css';
 // import DropDown from './DropDown';
+import hefImg from './hef.jpg';
+import lagunitasImg from './lagunitas.jpg';
+import rogueImg from './rogue.jpg';
+import avidImg from './avid.jpeg';
+import pfriemImg from './pfriem.png';
+import tapGif from './tap.gif';
+import pabstImg from './pabst.jpg';
+import guinnessImg from './guinness.jpg';
+import pacificoImg from './pacifico.jpg';
+import Reveal from 'react-reveal/Reveal';
+import Button from 'react-bootstrap/Button';
+
 
 class KegControl extends React.Component {
 
@@ -89,11 +102,6 @@ handleDeletingKeg = (id) => {
 //   count: this.state.count + 1 
 //   });
 // }
-handleIncrementPint = (id) => {
-  const selectedKeg = this.state.masterKegList.map(keg => keg.id === id)[0];
-  this.setState({selectedKeg: selectedKeg,
-    count: this.state.count + 1 });
-}
 
 handleDecrementPint = () => {
   this.setState({ count: this.state.count - 1 });
@@ -111,7 +119,9 @@ handleDecrementPint = () => {
 // }
 
 
+
   render(){
+    
     let currentlyVisibleState = null;
     let buttonText = null; 
     let optionTemplate = this.state.masterKegList.map(v => (
@@ -121,7 +131,7 @@ handleDecrementPint = () => {
       currentlyVisibleState = <EditKegForm keg = {this.state.selectedKeg} onEditKeg = {this.handleEditingKegInList} />
       buttonText = "Return to Keg List"; 
     } else if (this.state.selectedKeg != null) {
-      currentlyVisibleState = <KegDetail keg = {this.state.selectedKeg} onClickingDelete = {this.handleDeletingKeg} onClickingEdit = {this.handleEditClick} onClickingIncrement = {this.handleIncrementPint.bind(this)} onClickingDecrement = {this.handleDecrementPint.bind(this)} count = {this.state.count}/>
+      currentlyVisibleState = <KegDetail keg = {this.state.selectedKeg} onClickingDelete = {this.handleDeletingKeg} onClickingEdit = {this.handleEditClick} onClickingDecrement = {this.handleDecrementPint.bind(this)} count = {this.state.count}/>
       buttonText = "Return to Keg List";
     } else if (this.state.formVisibleOnPage) { 
       currentlyVisibleState = <NewKegForm onNewKegCreation={this.handleAddingNewKegToList} />;
@@ -134,21 +144,60 @@ handleDecrementPint = () => {
     
     return (
       <React.Fragment>
-       <form>
-        <label>
-          Pick a Keg:
+      <Reveal>
+      <div className="container">
+        <form>
+          <label>Pick a Keg:</label>
           <select value={this.state.value} onChange={this.handleChange}>
-          {optionTemplate}
-          
+            {optionTemplate}
           </select>
-        </label>
         </form>
-        <button type="submit" value="Submit">See Keg</button>
-     
+        
+        <Button variant="primary" type="submit">See Keg</Button>
         {currentlyVisibleState}
-  
-        <button onClick={this.handleClick}>{buttonText}</button>
-  
+        <Button variant="primary" onClick={this.handleClick}>{buttonText}</Button>
+      </div>
+      </Reveal>
+      <Reveal>
+      <div className="row">
+        <div className="column">
+          <img src={lagunitasImg} />
+          <img src={pfriemImg} />
+          <img src={rogueImg} />
+          <img src={tapGif} />
+          <img src={hefImg} />
+          <img src={avidImg} />
+          <img src={tapGif} />
+        </div>
+        <div className="column">
+          <img src={pabstImg} />
+          <img src={guinnessImg} />
+          <img src={lagunitasImg} />
+          <img src={pacificoImg} />
+          <img src={pfriemImg} />
+          <img src={pabstImg} />
+        </div>
+        <div className="column">
+          <img src={lagunitasImg} />
+          <img src={pfriemImg} />
+          <img src={rogueImg} />
+          <img src={tapGif} />
+          <img src={hefImg} />
+          <img src={avidImg} />
+          <img src={tapGif} />
+        </div>
+        <div className="column">
+          <img src={pabstImg} />
+          <img src={guinnessImg} />
+          <img src={lagunitasImg} />
+          <img src={pacificoImg} />
+          <img src={pfriemImg} />
+          <img src={pabstImg} />
+        </div>
+      </div>
+    
+
+      </Reveal>
       </React.Fragment>
     );
   }
