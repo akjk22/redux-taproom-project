@@ -21,6 +21,10 @@ function ReusableForm(props) {
           type='text'
           name='alcohol'
           placeholder='Alcohol Content' />
+            <input
+          type='text'
+          name='count'
+          placeholder='Pint Count' />
         <textarea
           name='description'
           placeholder='Add any other details' />

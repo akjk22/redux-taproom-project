@@ -34,7 +34,7 @@ function Keg(props){
     price: PropTypes.string,
     alcohol: PropTypes.string,
     description: PropTypes.string,
-    id: PropTypes.string,
+    id: PropTypes.number,
     whenKegClicked: PropTypes.func,
     count: PropTypes.number
     // img: PropTypes.string

@@ -104,7 +104,7 @@ handleDecrementPint = () => {
     };
   });
   console.log(sellPint)
-  this.setState({ masterKegList: sellPint, editing: true });
+  this.setState({ masterKegList: sellPint, editing: true,   formVisibleOnPage: true });
 }
 
 
@@ -167,10 +167,10 @@ handleDecrementPint = () => {
       <option value={v.id}>{v.name}</option>
     ));
   if (this.state.editing ) {      
-      currentlyVisibleState = <EditKegForm keg = {this.state.selectedKeg} onEditKeg = {this.handleEditingKegInList} onClickingBuy={this.handleBuy}/>
+      currentlyVisibleState = <EditKegForm keg = {this.state.selectedKeg} onEditKeg = {this.handleEditingKegInList} />
       buttonText = "Return to Keg List"; 
     } else if (this.state.selectedKeg != null) {
-      currentlyVisibleState = <KegDetail keg = {this.state.selectedKeg} onClickingDelete = {this.handleDeletingKeg} onClickingEdit = {this.handleEditClick} onClickingDecrement = {this.handleDecrementPint.bind(this)} count = {this.handleDecrementPint}/>
+      currentlyVisibleState = <KegDetail keg = {this.state.selectedKeg} onClickingDelete = {this.handleDeletingKeg} onClickingEdit = {this.handleEditClick} onClickingDecrement = {this.handleDecrementPint} />
       buttonText = "Return to Keg List";
     } else if (this.state.formVisibleOnPage) { 
       currentlyVisibleState = <NewKegForm onNewKegCreation={this.handleAddingNewKegToList} />;
