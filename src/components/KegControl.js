@@ -28,7 +28,7 @@ class KegControl extends React.Component {
       masterKegList: FakeKegList([]),
       selectedKeg: null,
       editing: false, 
-      count: 124
+      // count: 124
     };
  
   }
@@ -92,20 +92,59 @@ handleDeletingKeg = (id) => {
   });
 }
 
-
-// handleIncrementPint = (pintCount) => {
-//   const editedMasterKegCount = this.state.masterKegList
-//   .filter(keg => keg.id !== this.state.selectedKeg.id)
-//   .concat(pintCount);
-//   this.setState({
-//   masterKegList: editedMasterKegCount,
-//   count: this.state.count + 1 
-//   });
-// }
-
 handleDecrementPint = () => {
-  this.setState({ count: this.state.count - 1 });
-};
+
+  const sellPint = this.state.masterKegList.map((pint) => {
+    if (pint.id !== this.state.selectedKeg.id) {
+      return pint;
+    }
+    return {
+      ...pint,
+      count: pint.count - 1,
+    };
+  });
+  console.log(sellPint)
+  this.setState({ masterKegList: sellPint, editing: true });
+}
+
+
+
+// handleDecrementPint = () => {
+
+//   this.setState(   
+//     prevState => ({ count: prevState.count - 1 })
+//   );
+
+// };
+
+
+// handleDecrementPint = () => {
+
+// const masterKegList = this.props;
+
+// const pintCount= masterKegList.map(pint => {
+//   return (
+//     pint.count -1 
+//   ) 
+//     pintCount
+// })
+
+  // this.setState(prevState => { 
+  //   const masterKegListPintCount = prevState.masterKegList.map((pint) => {
+  //     if(this.state.id === pint.id ){
+  //       pint.count = pint.count - 1
+  //     }
+  //     console.log(pint)
+  //     return pint.count - 1
+  //   })
+  //   return {masterKegListPintCount}
+  // })
+// }
+  // const selectedKeg = this.state.masterKegList.filter(keg => keg.id === id)[0];
+  // this.setState({selectedKeg: selectedKeg, 
+  //   count: this.state.count - 1});
+
+
 
 //handle dropdown form submit
 
@@ -121,17 +160,17 @@ handleDecrementPint = () => {
 
 
   render(){
-    
+
     let currentlyVisibleState = null;
     let buttonText = null; 
     let optionTemplate = this.state.masterKegList.map(v => (
       <option value={v.id}>{v.name}</option>
     ));
   if (this.state.editing ) {      
-      currentlyVisibleState = <EditKegForm keg = {this.state.selectedKeg} onEditKeg = {this.handleEditingKegInList} />
+      currentlyVisibleState = <EditKegForm keg = {this.state.selectedKeg} onEditKeg = {this.handleEditingKegInList} onClickingBuy={this.handleBuy}/>
       buttonText = "Return to Keg List"; 
     } else if (this.state.selectedKeg != null) {
-      currentlyVisibleState = <KegDetail keg = {this.state.selectedKeg} onClickingDelete = {this.handleDeletingKeg} onClickingEdit = {this.handleEditClick} onClickingDecrement = {this.handleDecrementPint.bind(this)} count = {this.state.count}/>
+      currentlyVisibleState = <KegDetail keg = {this.state.selectedKeg} onClickingDelete = {this.handleDeletingKeg} onClickingEdit = {this.handleEditClick} onClickingDecrement = {this.handleDecrementPint.bind(this)} count = {this.handleDecrementPint}/>
       buttonText = "Return to Keg List";
     } else if (this.state.formVisibleOnPage) { 
       currentlyVisibleState = <NewKegForm onNewKegCreation={this.handleAddingNewKegToList} />;
@@ -161,42 +200,40 @@ handleDecrementPint = () => {
       <Reveal>
       <div className="row">
         <div className="column">
-          <img src={lagunitasImg} />
-          <img src={pfriemImg} />
-          <img src={rogueImg} />
-          <img src={tapGif} />
-          <img src={hefImg} />
-          <img src={avidImg} />
-          <img src={tapGif} />
+          <img alt="" src={lagunitasImg} />
+          <img alt="" src={pfriemImg} />
+          <img alt="" src={rogueImg} />
+          <img alt="" src={tapGif} />
+          <img alt="" src={hefImg} />
+          <img alt="" src={avidImg} />
+          <img alt="" src={tapGif} />
         </div>
         <div className="column">
-          <img src={pabstImg} />
-          <img src={guinnessImg} />
-          <img src={lagunitasImg} />
-          <img src={pacificoImg} />
-          <img src={pfriemImg} />
-          <img src={pabstImg} />
+          <img alt="" src={pabstImg} />
+          <img alt="" src={guinnessImg} />
+          <img alt="" src={lagunitasImg} />
+          <img alt="" src={pacificoImg} />
+          <img alt="" src={pfriemImg} />
+          <img alt="" src={pabstImg} />
         </div>
         <div className="column">
-          <img src={lagunitasImg} />
-          <img src={pfriemImg} />
-          <img src={rogueImg} />
-          <img src={tapGif} />
-          <img src={hefImg} />
-          <img src={avidImg} />
-          <img src={tapGif} />
+          <img alt="" src={lagunitasImg} />
+          <img alt="" src={pfriemImg} />
+          <img alt="" src={rogueImg} />
+          <img alt="" src={tapGif} />
+          <img alt="" src={hefImg} />
+          <img alt="" src={avidImg} />
+          <img alt="" src={tapGif} />
         </div>
         <div className="column">
-          <img src={pabstImg} />
-          <img src={guinnessImg} />
-          <img src={lagunitasImg} />
-          <img src={pacificoImg} />
-          <img src={pfriemImg} />
-          <img src={pabstImg} />
+          <img alt="" src={pabstImg} />
+          <img alt="" src={guinnessImg} />
+          <img alt="" src={lagunitasImg} />
+          <img alt="" src={pacificoImg} />
+          <img alt="" src={pfriemImg} />
+          <img alt="" src={pabstImg} />
         </div>
       </div>
-    
-
       </Reveal>
       </React.Fragment>
     );

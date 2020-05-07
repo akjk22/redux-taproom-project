@@ -17,7 +17,7 @@ function KegDetail(props){
       <button onClick={ props.onClickingEdit }>Update Keg</button>
       <button onClick={()=> onClickingDelete(keg.id) }>Delete Keg</button>
       <button onClick={ props.onClickingDecrement }>Sell Pint</button>
-      <p>Pint Count: {props.count}</p>
+      <p>Pint Count: {keg.count}</p>
  
       {/* <div>
         <img src={props.img} alt={props.name} />

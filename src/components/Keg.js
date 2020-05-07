@@ -18,6 +18,8 @@ function Keg(props){
       <p>{props.price}</p>
       <p>{props.alcohol}</p>
       <p>{props.description}</p>
+      <p>Pint Count: {props.count}</p>
+  
       {/* <div>
         <img src={props.img} alt={props.name} style={kegImgStyles}/>
       </div> */}
@@ -33,7 +35,8 @@ function Keg(props){
     alcohol: PropTypes.string,
     description: PropTypes.string,
     id: PropTypes.string,
-    whenKegClicked: PropTypes.func
+    whenKegClicked: PropTypes.func,
+    count: PropTypes.number
     // img: PropTypes.string
   };
 

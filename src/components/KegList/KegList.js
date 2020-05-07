@@ -22,6 +22,7 @@ function KegList(props) {
         description={keg.description}
         id={keg.id}
         key={keg.id}
+        count={keg.count}
         />
     )} >
 
