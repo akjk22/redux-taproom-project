@@ -1,5 +1,5 @@
 import React from 'react';
-import Keg from '../Keg';
+import Keg from '../Keg/Keg';
 // import hefImg from './hef.jpg';
 // import lagunitasImg from './lagunitas.jpg';
 // import rogueImg from './rogue.jpg';

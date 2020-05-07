@@ -31,7 +31,6 @@ KegDetail.propTypes = {
   keg: PropTypes.object,
   onClickingDelete: PropTypes.func,
   onClickingEdit: PropTypes.func,
-  onClickingIncrement: PropTypes.func,
   onClickingDecrement: PropTypes.func
 };
 

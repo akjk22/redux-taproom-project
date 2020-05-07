@@ -1,20 +1,20 @@
 import React from 'react';
-import NewKegForm from './NewKegForm';
-import KegList from "./KegList/KegList";
-import KegDetail from "./KegDetail";
-import EditKegForm from './EditKegForm';
-import { FakeKegList } from './fakeKegService';
+import NewKegForm from '../NewKegForm/NewKegForm';
+import KegList from "../KegList/KegList";
+import KegDetail from "../KegDetail/KegDetail";
+import EditKegForm from '../EditKegForm/EditKegForm';
+import { FakeKegList } from '../../data/fakeKegService';
 import './KegControl.css';
 // import DropDown from './DropDown';
-import hefImg from './hef.jpg';
-import lagunitasImg from './lagunitas.jpg';
-import rogueImg from './rogue.jpg';
-import avidImg from './avid.jpeg';
-import pfriemImg from './pfriem.png';
-import tapGif from './tap.gif';
-import pabstImg from './pabst.jpg';
-import guinnessImg from './guinness.jpg';
-import pacificoImg from './pacifico.jpg';
+import hefImg from './img/hef.jpg';
+import lagunitasImg from './img/lagunitas.jpg';
+import rogueImg from './img/rogue.jpg';
+import avidImg from './img/avid.jpeg';
+import pfriemImg from './img/pfriem.png';
+import tapGif from './img/tap.gif';
+import pabstImg from './img/pabst.jpg';
+import guinnessImg from './img/guinness.jpg';
+import pacificoImg from './img/pacifico.jpg';
 import Reveal from 'react-reveal/Reveal';
 import Button from 'react-bootstrap/Button';
 
@@ -104,7 +104,7 @@ handleDecrementPint = () => {
     };
   });
   console.log(sellPint)
-  this.setState({ masterKegList: sellPint, editing: true,   formVisibleOnPage: true });
+  this.setState({ masterKegList: sellPint, editing: true});
 }
 
 
@@ -167,7 +167,7 @@ handleDecrementPint = () => {
       <option value={v.id}>{v.name}</option>
     ));
   if (this.state.editing ) {      
-      currentlyVisibleState = <EditKegForm keg = {this.state.selectedKeg} onEditKeg = {this.handleEditingKegInList} />
+      currentlyVisibleState = <EditKegForm keg = {this.state.selectedKeg} onEditKeg = {this.handleEditingKegInList} onClickingDecrement = {this.handleDecrementPint} onClick={this.handleClick} />
       buttonText = "Return to Keg List"; 
     } else if (this.state.selectedKeg != null) {
       currentlyVisibleState = <KegDetail keg = {this.state.selectedKeg} onClickingDelete = {this.handleDeletingKeg} onClickingEdit = {this.handleEditClick} onClickingDecrement = {this.handleDecrementPint} />
