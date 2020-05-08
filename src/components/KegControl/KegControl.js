@@ -5,7 +5,6 @@ import KegDetail from "../KegDetail/KegDetail";
 import EditKegForm from '../EditKegForm/EditKegForm';
 import { FakeKegList } from '../../data/fakeKegService';
 import './KegControl.css';
-// import DropDown from './DropDown';
 import hefImg from './img/hef.jpg';
 import lagunitasImg from './img/lagunitas.jpg';
 import rogueImg from './img/rogue.jpg';
@@ -17,6 +16,8 @@ import guinnessImg from './img/guinness.jpg';
 import pacificoImg from './img/pacifico.jpg';
 import Reveal from 'react-reveal/Reveal';
 import Button from 'react-bootstrap/Button';
+// import DropDown from '../DropDown/DropDown';
+
 
 
 class KegControl extends React.Component {
@@ -27,7 +28,7 @@ class KegControl extends React.Component {
       formVisibleOnPage: false,
       masterKegList: FakeKegList([]),
       selectedKeg: null,
-      editing: false, 
+      editing: false,
       // count: 124
     };
  
@@ -148,24 +149,31 @@ handleDecrementPint = () => {
 
 //handle dropdown form submit
 
-// handleChange(event) {
-//   this.setState({value: event.target.value});
+// renderSelection = (selectedKeg) =>{
+//   this.setState({
+//     selectedKeg: selectedKeg
+//   });
 // }
-
-// handleSubmit(event) {
-//   alert('A name was submitted: ' + this.state.value);
-//   event.preventDefault();
-// }
-
-
 
   render(){
 
     let currentlyVisibleState = null;
     let buttonText = null; 
-    let optionTemplate = this.state.masterKegList.map(v => (
-      <option value={v.id}>{v.name}</option>
-    ));
+    // let optionTemplate = this.state.masterKegList.map(v => (
+    //   <option value={v.id}>{v.name}</option>
+    // ));
+
+    let masterKegListDropDown = this.state.masterKegList
+    // let masterKegList = this.props.masterKegList;
+    let options =  masterKegListDropDown.map((data) =>
+            <option 
+                key={data.id}
+                value={data.id}
+            >
+                {data.name}
+            </option>
+        );
+
   if (this.state.editing ) {      
       currentlyVisibleState = <EditKegForm keg = {this.state.selectedKeg} onEditKeg = {this.handleEditingKegInList} onClickingDecrement = {this.handleDecrementPint} onClick={this.handleClick} />
       buttonText = "Return to Keg List"; 
@@ -179,17 +187,22 @@ handleDecrementPint = () => {
       currentlyVisibleState =
       <KegList kegList={this.state.masterKegList} onKegSelection={this.handleChangingSelectedKeg}/>;
       buttonText = "Add Keg";
-    }
-    
+    } 
     return (
       <React.Fragment>
       <Reveal>
       <div className="container">
         <form>
           <label>Pick a Keg:</label>
-          <select value={this.state.value} onChange={this.handleChange}>
+          {/* <select value={this.state.value} onChange={this.handleChange}>
             {optionTemplate}
-          </select>
+          </select> */}
+           <p className="App-intro">
+           <select name="customSearch" className="custom-search-select" onChange={this.handleChange}>
+                <option>Select Item</option>
+                {options}
+           </select>
+          </p>
         </form>
         
         <Button variant="primary" type="submit">See Keg</Button>
