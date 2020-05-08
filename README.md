@@ -1,6 +1,26 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React Taproom Independent Project
 
-## Available Scripts
+## _By: Andrew Kim_
+
+## Intro
+
+This project will display a taproom that incorporates the use of shared and local state using React. 
+
+## Description
+
+On page load, a user will be able to see a list of kegs generated from a fake keg service, which mirrors JSON data. A user can then click on a Keg to render a new component that shows details about the keg. From there, they can update, sell pints, or delete kegs. Kegs can also be added to the KegList and updated, deleted, and sold. When a user clicks the "Add Keg" button, the KegList component will be hidden and the user will see the NewKegForm component instead.
+
+ KegControl will need to have local state to determine which of the following states the page should be in:
+ 
+ KegList showing and NewKegForm hidden;
+ NewKegForm showing and KegList hidden.
+ 
+ Shared state will be with our masterKegList state slice. 
+
+## Setup/Installation
+
+Clone the repo, cd into 'taproom' and npm install. 
 
 In the project directory, you can run:
 
@@ -12,72 +32,21 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `npm test`
+## Component Diagram
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![](images/TapRoomDiagram.png)
 
-### `npm run build`
+## Support and Contact Details
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+If you run into issues with the code email me at andrewswkim47@gmail.com
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Technologies Used
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+React, create-react-app which packages our node modules, react-reveal, and react-bootstrap for UI
 
-### `npm run eject`
+## License
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Copyright (c) 2020 Andrew Kim
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-
-Our application will be an SPA (single-page application) that shows the KegList component. However, when a user clicks the "Add Keg" button, the KegList component will be hidden and the user will see the NewKegForm component instead.
-
-That means both the KegList component and the NewKegForm component need to have the same parent - but only one of the components will be showing at a time.
-
-In order to toggle between these two components, KegControl will need to have local state to determine which of the following states the page should be in:
-
-KegList showing and NewKegForm hidden;
-NewKegForm showing and KegList hidden.
-We will take care of toggling between these components (our local state) before we start building our shared state. However, it's important to have our plan in place so let's take a look at which of these components will need to share state:
-
-KegList will need access to the master list of kegs so it can read and display them;
-NewKegForm will need access to the master list of kegs so it can ensure new kegs can get passed into that master list.
-
-So where should this shared state go? Fortunately, this is a simple question to answer. Both components have the same parent. KegControl is the lowest common ancestor to which we can lift our application state.
