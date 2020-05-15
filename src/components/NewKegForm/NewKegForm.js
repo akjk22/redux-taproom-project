@@ -2,7 +2,6 @@ import React from "react";
 import { v4 } from 'uuid';
 import PropTypes from "prop-types";
 import ReusableForm from "../ReusableForm/ReusableForm";
-// toggle between KegList and KegForm - Local State
 
 function NewKegForm(props){
 
@@ -21,7 +20,8 @@ function NewKegForm(props){
 }
 
 NewKegForm.propTypes = {
-  onNewKegCreation: PropTypes.func
+  onNewKegCreation: PropTypes.func,
+  count: PropTypes.number
 };
 
 export default NewKegForm;

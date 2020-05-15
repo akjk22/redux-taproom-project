@@ -2,13 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 
-// import {KegList} from './fakeKegService';
-
 function Keg(props){
-  // const kegImgStyles = {
-  //   width: '400px',
-  //   height: '400px',
-  // }
 
   return (
     <React.Fragment>
@@ -19,10 +13,6 @@ function Keg(props){
       <p>{props.alcohol}</p>
       <p>{props.description}</p>
       <p>Pint Count: {props.count}</p>
-  
-      {/* <div>
-        <img src={props.img} alt={props.name} style={kegImgStyles}/>
-      </div> */}
     </div>
     </React.Fragment>
   );
@@ -37,7 +27,6 @@ function Keg(props){
     id: PropTypes.number,
     whenKegClicked: PropTypes.func,
     count: PropTypes.number
-    // img: PropTypes.string
   };
 
 export default Keg;

@@ -6,7 +6,6 @@ const masterKegList = [
     price: '$140',
     alcohol: '5%',
     count: 124,
-    // img: hoodieImg
   },
   {
     id: 2,
@@ -14,8 +13,7 @@ const masterKegList = [
     brand: 'Lagunitas',
     price: '$160',
     alcohol: '7.5%',
-    count: 124,
-    // img: shirtImg
+    count: 124
   },
   {
     id: 3,
@@ -24,7 +22,6 @@ const masterKegList = [
     price: '$220',
     alcohol: '5.8%',
     count: 124,
-    // img: shirtImg
   },
   {
     id: 4,
@@ -32,8 +29,7 @@ const masterKegList = [
     brand: 'Avid Cider Co.',
     price: '$180',
     alcohol: '6%',
-    count: 124,
-    // img: shirtImg
+    count: 124
   },
   {
     id: 5,
@@ -41,8 +37,7 @@ const masterKegList = [
     brand: 'pFriem',
     price: '$155',
     alcohol: '5.3%',
-    count: 124,
-    // img: shirtImg
+    count: 124
   }
 ];
 

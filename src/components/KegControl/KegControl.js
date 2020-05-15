@@ -16,8 +16,6 @@ import guinnessImg from './img/guinness.jpg';
 import pacificoImg from './img/pacifico.jpg';
 import Reveal from 'react-reveal/Reveal';
 import Button from 'react-bootstrap/Button';
-// import DropDown from '../DropDown/DropDown';
-
 
 
 class KegControl extends React.Component {
@@ -29,7 +27,6 @@ class KegControl extends React.Component {
       masterKegList: FakeKegList([]),
       selectedKeg: null,
       editing: false,
-      // count: 124
     };
  
   }
@@ -69,7 +66,6 @@ class KegControl extends React.Component {
 }
 
 handleEditClick = () => {
-  console.log("handleEditClick reached!");
   this.setState({editing: true});
 }
 
@@ -108,63 +104,11 @@ handleDecrementPint = () => {
   this.setState({ masterKegList: sellPint, editing: true});
 }
 
-
-
-// handleDecrementPint = () => {
-
-//   this.setState(   
-//     prevState => ({ count: prevState.count - 1 })
-//   );
-
-// };
-
-
-// handleDecrementPint = () => {
-
-// const masterKegList = this.props;
-
-// const pintCount= masterKegList.map(pint => {
-//   return (
-//     pint.count -1 
-//   ) 
-//     pintCount
-// })
-
-  // this.setState(prevState => { 
-  //   const masterKegListPintCount = prevState.masterKegList.map((pint) => {
-  //     if(this.state.id === pint.id ){
-  //       pint.count = pint.count - 1
-  //     }
-  //     console.log(pint)
-  //     return pint.count - 1
-  //   })
-  //   return {masterKegListPintCount}
-  // })
-// }
-  // const selectedKeg = this.state.masterKegList.filter(keg => keg.id === id)[0];
-  // this.setState({selectedKeg: selectedKeg, 
-  //   count: this.state.count - 1});
-
-
-
-//handle dropdown form submit
-
-// renderSelection = (selectedKeg) =>{
-//   this.setState({
-//     selectedKeg: selectedKeg
-//   });
-// }
-
   render(){
 
     let currentlyVisibleState = null;
     let buttonText = null; 
-    // let optionTemplate = this.state.masterKegList.map(v => (
-    //   <option value={v.id}>{v.name}</option>
-    // ));
-
     let masterKegListDropDown = this.state.masterKegList
-    // let masterKegList = this.props.masterKegList;
     let options =  masterKegListDropDown.map((data) =>
             <option 
                 key={data.id}
@@ -182,7 +126,6 @@ handleDecrementPint = () => {
       buttonText = "Return to Keg List";
     } else if (this.state.formVisibleOnPage) { 
       currentlyVisibleState = <NewKegForm onNewKegCreation={this.handleAddingNewKegToList} />;
-      // buttonText = "Return to Keg List";
     } else {
       currentlyVisibleState =
       <KegList kegList={this.state.masterKegList} onKegSelection={this.handleChangingSelectedKeg}/>;
@@ -194,9 +137,6 @@ handleDecrementPint = () => {
       <div className="container">
         <form>
           <label>Pick a Keg:</label>
-          {/* <select value={this.state.value} onChange={this.handleChange}>
-            {optionTemplate}
-          </select> */}
            <p className="App-intro">
            <select name="customSearch" className="custom-search-select" onChange={this.handleChange}>
                 <option>Select Item</option>

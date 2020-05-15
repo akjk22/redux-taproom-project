@@ -18,11 +18,6 @@ function KegDetail(props){
       <button onClick={()=> onClickingDelete(keg.id) }>Delete Keg</button>
       <button onClick={ props.onClickingDecrement }>Sell Pint</button>
       <p>Pint Count: {keg.count}</p>
- 
-      {/* <div>
-        <img src={props.img} alt={props.name} />
-      </div> */}
-      
     </React.Fragment>
   );
 }

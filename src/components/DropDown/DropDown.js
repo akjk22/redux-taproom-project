@@ -1,15 +1,3 @@
-// import React from 'react';
-
-// const DropDown = ( props ) => {
-//   return (
-//    <div className="Question">
-//     <p>{props.title}</p>
-//    </div>
-//   )
-//  };
- 
-//  export default DropDown;
-
 import React, {Component} from 'react';
 import { FakeKegList } from '../../data/fakeKegService';
 
@@ -19,10 +7,8 @@ class DropDown extends Component{
         this.state = {
           masterKegListy: FakeKegList(),
         }
-       
     }
 
-    //On the change event for the select box pass the selected value back to the parent
     handleChange = (event) =>
     {
         let selectedKeg = event.target.value;
@@ -31,7 +17,6 @@ class DropDown extends Component{
 
     render(){
       let masterKegListy = this.props.masterKegListy
-      // let masterKegList = this.props.masterKegList;
       let options =  masterKegListy.map((data) =>
               <option 
                   key={data.id}
