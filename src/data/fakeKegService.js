@@ -5,7 +5,7 @@ const masterKegList = [
     brand: 'Widmer',
     price: '$140',
     alcohol: '5%',
-    count: 124,
+    count: 1,
   },
   {
     id: 2,

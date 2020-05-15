@@ -97,11 +97,11 @@ handleDecrementPint = () => {
     }
     return {
       ...pint,
-      count: pint.count - 1,
+      count: pint.count - 1 >= 0,
     };
   });
   console.log(sellPint)
-  this.setState({ masterKegList: sellPint, editing: true});
+  this.setState({ masterKegList: sellPint, editing: true, });
 }
 
   render(){
