@@ -97,26 +97,26 @@ handleDecrementPint = () => {
     }
     return {
       ...pint,
-      count: pint.count - 1 >= 0,
+      count: pint.count - 1,
     };
   });
   console.log(sellPint)
-  this.setState({ masterKegList: sellPint, editing: true, });
+  this.setState({ masterKegList: sellPint, editing: true, formVisibleOnPage: false});
 }
 
   render(){
 
     let currentlyVisibleState = null;
     let buttonText = null; 
-    let masterKegListDropDown = this.state.masterKegList
-    let options =  masterKegListDropDown.map((data) =>
-            <option 
-                key={data.id}
-                value={data.id}
-            >
-                {data.name}
-            </option>
-        );
+    // let masterKegListDropDown = this.state.masterKegList
+    // let options =  masterKegListDropDown.map((data) =>
+    //         <option 
+    //             key={data.id}
+    //             value={data.id}
+    //         >
+    //             {data.name}
+    //         </option>
+    //     );
 
   if (this.state.editing ) {      
       currentlyVisibleState = <EditKegForm keg = {this.state.selectedKeg} onEditKeg = {this.handleEditingKegInList} onClickingDecrement = {this.handleDecrementPint} onClick={this.handleClick} />
@@ -135,7 +135,8 @@ handleDecrementPint = () => {
       <React.Fragment>
       <Reveal>
       <div className="container">
-        <form>
+        {/* want to get back to this */}
+        {/* <form>
           <label>Pick a Keg:</label>
            <p className="App-intro">
            <select name="customSearch" className="custom-search-select" onChange={this.handleChange}>
@@ -143,9 +144,9 @@ handleDecrementPint = () => {
                 {options}
            </select>
           </p>
-        </form>
-        
-        <Button variant="primary" type="submit">See Keg</Button>
+        </form> */}
+{/*         
+        <Button variant="primary" type="submit">See Keg</Button> */}
         {currentlyVisibleState}
         <Button variant="primary" onClick={this.handleClick}>{buttonText}</Button>
       </div>

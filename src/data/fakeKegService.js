@@ -1,6 +1,8 @@
+import { v4 } from 'uuid';
+
 const masterKegList = [
   {
-    id: 1,
+    id: v4(),
     name: 'Hefeweizen',
     brand: 'Widmer',
     price: '$140',
@@ -8,7 +10,7 @@ const masterKegList = [
     count: 1,
   },
   {
-    id: 2,
+    id: v4(),
     name: 'A Little Sumpin Sumpin',
     brand: 'Lagunitas',
     price: '$160',
@@ -16,7 +18,7 @@ const masterKegList = [
     count: 124
   },
   {
-    id: 3,
+    id: v4(),
     name: 'Chocolate Stout Nitro',
     brand: 'Rogue',
     price: '$220',
@@ -24,7 +26,7 @@ const masterKegList = [
     count: 124,
   },
   {
-    id: 4,
+    id: v4(),
     name: 'Organic Dry Cider',
     brand: 'Avid Cider Co.',
     price: '$180',
@@ -32,7 +34,7 @@ const masterKegList = [
     count: 124
   },
   {
-    id: 5,
+    id: v4(),
     name: 'Vienna Lager',
     brand: 'pFriem',
     price: '$155',

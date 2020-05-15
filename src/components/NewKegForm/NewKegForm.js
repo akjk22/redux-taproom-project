@@ -7,7 +7,7 @@ function NewKegForm(props){
 
   function handleNewKegFormSubmission(event) {
     event.preventDefault();
-    props.onNewKegCreation({brand: event.target.brand.value, name: event.target.name.value, price: event.target.price.value, alcohol: event.target.alcohol.value, count: parseInt(event.target.count.value), description: event.target.description.value, id: parseInt(v4())});
+    props.onNewKegCreation({brand: event.target.brand.value, name: event.target.name.value, price: event.target.price.value, alcohol: event.target.alcohol.value, count: parseInt(event.target.count.value), description: event.target.description.value, id: v4()});
   }
 
   return (
