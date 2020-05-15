@@ -90,7 +90,6 @@ handleDeletingKeg = (id) => {
 }
 
 handleDecrementPint = () => {
-
   const sellPint = this.state.masterKegList.map((pint) => {
     if (pint.id !== this.state.selectedKeg.id) {
       return pint;
@@ -98,10 +97,12 @@ handleDecrementPint = () => {
     return {
       ...pint,
       count: pint.count - 1,
+      // count: pint.count - 1 > 0
+      // doesn't work because count becomes a boolean value
     };
   });
   console.log(sellPint)
-  this.setState({ masterKegList: sellPint, editing: true, formVisibleOnPage: false});
+  this.setState({ masterKegList: sellPint, editing: false, formVisibleOnPage: true, selectedKeg: sellPint });
 }
 
   render(){
