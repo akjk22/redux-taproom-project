@@ -2,8 +2,6 @@ import kegListReducer from '../../reducers/keg-list-reducer';
 
 describe('kegListReducer', () => {
 
-  let action;
-
   test('Should return default state if there is no action type passed into the reducer', () => {
     expect(kegListReducer({}, { type: null })).toEqual({});
   });
@@ -75,6 +73,37 @@ test('Should successfully delete a keg', () => {
       count: 124}
   });
 });
+// for decrementing pint
+const currentPintState = {
+  2: { id: 2,
+    name: 'A Little Sumpin Sumpin',
+    brand: 'Lagunitas',
+    price: '$160',
+    alcohol: '7.5%',
+    count: 124 }
+}
+test('Should successfully decrement pint', () => {
+  action = {
+    type: 'DECREMENT_COUNT',
+    id: 2,
+    name: 'A Little Sumpin Sumpin',
+    brand: 'Lagunitas',
+    price: '$160',
+    alcohol: '7.5%',
+    count: 124
+  };
+
+  expect(kegListReducer(currentPintState, action)).toEqual({
+    2: { 
+      id: 2,
+      name: 'A Little Sumpin Sumpin',
+      brand: 'Lagunitas',
+      price: '$160',
+      alcohol: '7.5%',
+      count: 123 }
+  });
+});
+
 
 
 });
