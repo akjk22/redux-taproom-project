@@ -16,6 +16,7 @@ import guinnessImg from './img/guinness.jpg';
 import pacificoImg from './img/pacifico.jpg';
 import Reveal from 'react-reveal/Reveal';
 import Button from 'react-bootstrap/Button';
+import { connect } from 'react-redux';
 
 
 class KegControl extends React.Component {
@@ -193,7 +194,8 @@ handleDecrementPint = () => {
       </React.Fragment>
     );
   }
-
 }
+
+KegControl = connect()(KegControl);
 
 export default KegControl;
