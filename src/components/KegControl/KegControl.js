@@ -17,6 +17,7 @@ import pacificoImg from './img/pacifico.jpg';
 import Reveal from 'react-reveal/Reveal';
 import Button from 'react-bootstrap/Button';
 import { connect } from 'react-redux';
+import PropTypes from "prop-types";
 
 
 class KegControl extends React.Component {
@@ -25,7 +26,7 @@ class KegControl extends React.Component {
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      masterKegList: FakeKegList([]),
+      // masterKegList: FakeKegList([]),
       selectedKeg: null,
       editing: false,
     };
@@ -47,10 +48,19 @@ class KegControl extends React.Component {
   }
 
   handleAddingNewKegToList = (newKeg) => {
-    const newMasterKegList = this.state.masterKegList.concat(newKeg);
-    this.setState({masterKegList: newMasterKegList,
-      formVisibleOnPage: false
-    });
+    const { dispatch } = this.props;
+    const { id, name, brand, price, alcohol, count } = newKeg;
+    const action = {
+      type: 'ADD_KEG',
+      id: id,
+      name: name,
+      brand: brand,
+      price: price,
+      alcohol: alcohol,
+      count: count
+    }
+    dispatch(action);
+    this.setState({formVisibleOnPage: false});
   }
 
   handleChangingSelectedKeg = (id) => {
@@ -59,33 +69,34 @@ class KegControl extends React.Component {
   }
 
   handleDeletingKeg = (id) => {
-  const newMasterKegList = this.state.masterKegList.filter(keg => keg.id !== id);
-  this.setState({
-    masterKegList: newMasterKegList,
-    selectedKeg: null
-  });
-}
+    const { dispatch } = this.props;
+    const action = {
+      type: 'DELETE_KEG',
+      id: id
+    }
+    dispatch(action);
+    this.setState({selectedKeg: null});
+  }
 
 handleEditClick = () => {
   this.setState({editing: true});
 }
 
 handleEditingKegInList = (kegToEdit) => {
-  const editedMasterKegList = this.state.masterKegList
-    .filter(keg => keg.id !== this.state.selectedKeg.id)
-    .concat(kegToEdit);
+  const { dispatch } = this.props;
+  const { id, name, brand, price, alcohol, count } = kegToEdit;
+  const action = {
+    type: 'ADD_KEG',
+    id: id,
+    name: name,
+    brand: brand,
+    price: price,
+    alcohol: alcohol,
+    count: count
+  }
+  dispatch(action);
   this.setState({
-      masterKegList: editedMasterKegList,
-      editing: false,
-      selectedKeg: null
-    });
-}
-
-
-handleDeletingKeg = (id) => {
-  const newMasterKegList = this.state.masterKegList.filter(keg => keg.id !== id);
-  this.setState({
-    masterKegList: newMasterKegList,
+    editing: false,
     selectedKeg: null
   });
 }
@@ -110,16 +121,6 @@ handleDecrementPint = () => {
 
     let currentlyVisibleState = null;
     let buttonText = null; 
-    // let masterKegListDropDown = this.state.masterKegList
-    // let options =  masterKegListDropDown.map((data) =>
-    //         <option 
-    //             key={data.id}
-    //             value={data.id}
-    //         >
-    //             {data.name}
-    //         </option>
-    //     );
-
   if (this.state.editing ) {      
       currentlyVisibleState = <EditKegForm keg = {this.state.selectedKeg} onEditKeg = {this.handleEditingKegInList} onClickingDecrement = {this.handleDecrementPint} onClick={this.handleClick} />
       buttonText = "Return to Keg List"; 
@@ -130,25 +131,13 @@ handleDecrementPint = () => {
       currentlyVisibleState = <NewKegForm onNewKegCreation={this.handleAddingNewKegToList} />;
     } else {
       currentlyVisibleState =
-      <KegList kegList={this.state.masterKegList} onKegSelection={this.handleChangingSelectedKeg}/>;
+      <KegList kegList={this.props.masterKegList} onKegSelection={this.handleChangingSelectedKeg}/>;
       buttonText = "Add Keg";
     } 
     return (
       <React.Fragment>
       <Reveal>
       <div className="container">
-        {/* want to get back to this */}
-        {/* <form>
-          <label>Pick a Keg:</label>
-           <p className="App-intro">
-           <select name="customSearch" className="custom-search-select" onChange={this.handleChange}>
-                <option>Select Item</option>
-                {options}
-           </select>
-          </p>
-        </form> */}
-{/*         
-        <Button variant="primary" type="submit">See Keg</Button> */}
         {currentlyVisibleState}
         <Button variant="primary" onClick={this.handleClick}>{buttonText}</Button>
       </div>
@@ -196,6 +185,16 @@ handleDecrementPint = () => {
   }
 }
 
-KegControl = connect()(KegControl);
+KegControl.propTypes = {
+  masterKegList: PropTypes.object
+};
+
+const mapStateToProps = state => {
+  return {
+    masterKegList: state
+  }
+}
+
+KegControl = connect(mapStateToProps)(KegControl);
 
 export default KegControl;
