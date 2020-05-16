@@ -1,5 +1,4 @@
 import kegListReducer from '../../reducers/keg-list-reducer';
-import { v4 } from 'uuid';
 
 describe('kegListReducer', () => {
 
@@ -11,15 +10,15 @@ describe('kegListReducer', () => {
 
 
 
-
+//for adding keg
   let action;
   const kegData = {
-    id: v4(),
+    id: 1,
     name: 'Hefeweizen',
     brand: 'Widmer',
     price: '$140',
     alcohol: '5%',
-    count: 1,
+    count: 124,
   };
 
   test('Should successfully add new keg data to masterKegList', () => {
@@ -45,6 +44,38 @@ describe('kegListReducer', () => {
       }
     });
   });
+
+//for deleting keg
+const currentState = {
+  1: { id: 1,
+    name: 'Hefeweizen',
+    brand: 'Widmer',
+    price: '$140',
+    alcohol: '5%',
+    count: 124 },
+  2: { id: 2,
+    name: 'A Little Sumpin Sumpin',
+    brand: 'Lagunitas',
+    price: '$160',
+    alcohol: '7.5%',
+    count: 124 }
+}
+
+test('Should successfully delete a keg', () => {
+  action = {
+    type: 'DELETE_KEG',
+    id: 1
+  };
+  expect(kegListReducer(currentState, action)).toEqual({
+    2: {id: 2,
+      name: 'A Little Sumpin Sumpin',
+      brand: 'Lagunitas',
+      price: '$160',
+      alcohol: '7.5%',
+      count: 124}
+  });
+});
+
 
 });
 
