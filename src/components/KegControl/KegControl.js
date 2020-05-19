@@ -95,10 +95,8 @@ handleEditingKegInList = (kegToEdit) => {
     count: count
   }
   dispatch(action);
-  this.setState({
-    editing: false,
-    selectedKeg: null
-  });
+  this.setState({ editing: false });
+  this.setState({selectedKeg: null});
 }
 
 handleDecrementPint = () => {
