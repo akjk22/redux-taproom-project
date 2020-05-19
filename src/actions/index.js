@@ -12,7 +12,7 @@ export const addKeg = (keg) => {
   return {
     type: 'ADD_KEG',
     id: id,
-    names: name,
+    name: name,
     brand: brand,
     price: price,
     alcohol: alcohol,
