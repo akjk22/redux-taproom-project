@@ -15,9 +15,15 @@ export default (state = {}, action) => {
       }
     });
     case c.DELETE_KEG:
-    const newState = { ...state };
-    delete newState[id];
-    return newState;
+      const newState = { ...state };
+      delete newState[id];
+      return newState;
+    case c.SELECT_KEG:
+      const newState = { ...state };
+      return newState[id];
+    case c.EDIT_KEG:
+      const newState = { ...state };
+      return newState;
     // case c.DECREMENT_COUNT:
     // let newPintState = { ... state };
     // // newPintState = {

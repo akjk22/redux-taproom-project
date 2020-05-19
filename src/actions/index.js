@@ -1,3 +1,13 @@
+export const selectKeg = id => ({
+  type: 'SELECT_KEG',
+  id
+});
+
+export const editKeg = id => ({
+  type: 'EDIT_KEG',
+  id
+});
+
 export const deleteKeg = id => ({
   type: 'DELETE_KEG',
   id
