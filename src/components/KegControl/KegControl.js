@@ -87,13 +87,11 @@ handleDecrementPint = () => {
     }
     return {
       ...pint,
-      count: pint.count - 1,
-      // count: pint.count - 1 > 0
-      // doesn't work because count becomes a boolean value
+      count: Math.max(pint.count - 1, 0),
     };
   });
-  console.log(sellPint)
-  this.setState({ masterKegList: sellPint, editing: false, formVisibleOnPage: true, selectedKeg: sellPint });
+  const select = { ...this.state.selectedKeg, count: Math.max(this.state.selectedKeg.count - 1, 0) };
+  this.setState({ masterKegList: sellPint,  selectedKeg: select });
 }
 
   render(){

@@ -4,19 +4,6 @@
   color: #feda6a;
 }
 
-/* #animated-gif-container { 
-  background-image:url(https://media2.giphy.com/media/8aZFx5Sou92Xm/source.gif);
-  background-repeat:no-repeat;
-  background-size: 100%;
-  margin:  auto auto;
-  width: 50%;
-  height: 50%;
-  background-size:contain;
-  background-position:right;
-  background: cover;
-  padding-left: 20px; 
-} */
-
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -25,7 +12,7 @@
   text-align: center;
 }
 
-/* Create two equal columns that sits next to each other */
+
 .column {
   flex: 50%;
   padding: 0 4px;

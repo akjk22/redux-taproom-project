@@ -74,8 +74,14 @@ test('Should successfully delete a keg', () => {
       count: 124}
   });
 });
-// for decrementing pint
-const currentPintState = {
+//  for editing keg
+const currentState2 = {
+  1: { id: 1,
+    name: 'Hefeweizen',
+    brand: 'Widmer',
+    price: '$140',
+    alcohol: '5%',
+    count: 124 },
   2: { id: 2,
     name: 'A Little Sumpin Sumpin',
     brand: 'Lagunitas',
@@ -83,32 +89,26 @@ const currentPintState = {
     alcohol: '7.5%',
     count: 124 }
 }
-// test('Should successfully decrement pint', () => {
-//   action = {
-//     type: c.DECREMENT_COUNT,
-//     id: 2,
-//     name: 'A Little Sumpin Sumpin',
-//     brand: 'Lagunitas',
-//     price: '$160',
-//     alcohol: '7.5%',
-//     count: 124
-//   };
-
-//   expect(kegListReducer(currentPintState, action)).toEqual({
-//     2: { 
-//       id: 2,
-//       name: 'A Little Sumpin Sumpin',
-//       brand: 'Lagunitas',
-//       price: '$160',
-//       alcohol: '7.5%',
-//       count: 123 }
-//   });
-// });
-
-
-
+ test('Should edit keg if an item with the same id already exists', () => {
+  action = {
+    type: c.EDIT_KEG,
+    id: 1
+  };
+ 
+  expect(kegListReducer(currentState2, action)).toEqual({
+    1: { id: 1,
+      name: 'Hefeweizen',
+      brand: 'Widmer',
+      price: '$140',
+      alcohol: '5%',
+      count: 124 },
+    2: {id: 2,
+      name: 'A Little Sumpin Sumpin',
+      brand: 'Lagunitas',
+      price: '$160',
+      alcohol: '7.5%',
+      count: 124}
+  });
 });
 
-
-
-
+});
