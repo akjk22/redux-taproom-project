@@ -1,28 +1,19 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-# React Taproom Independent Project
+# React Redux Taproom Independent Project
 
 ## _By: Andrew Kim_
 
 ## Intro
 
-This project will display a taproom that incorporates the use of shared and local state using React. 
+This project will display a taproom that incorporates the use of React and Redux to store state. 
 
 ## Description
 
-On page load, a user will be able to see a list of kegs generated from a fake keg service, which mirrors JSON data. A user can then click on a Keg to render a new component that shows details about the keg. From there, they can update, sell pints, or delete kegs. Kegs can also be added to the KegList and updated, deleted, and sold. When a user clicks the "Add Keg" button, the KegList component will be hidden and the user will see the NewKegForm component instead.
-
- KegControl will need to have local state to determine which of the following states the page should be in:
- 
- KegList showing and NewKegForm hidden;
- NewKegForm showing and KegList hidden.
- 
- Shared state will be with our masterKegList state slice. 
+On page load, a user will see an  add a keg CTA. A user can then click on the button to render a new component that shows details that need to be filled to add a keg. After a keg is added, it'll get added a growing list. From there, they can update, sell pints, or delete kegs. When a user clicks the "Add Keg" button, the KegList component will be hidden and the user will see the NewKegForm component instead. State will be placed in a Redux store using a root reducer to specify how state changes in the appication. Actions and action constants will be used to perform specific functions such as deleting and adding a keg. These actions are dispatched to the store.
 
 ## Setup/Installation
 
-Clone the repo, cd into 'taproom' and npm install. 
-
-In the project directory, you can run:
+Clone the repo to load a local server. User may need to npm install before the next command can be run.
 
 ### `npm start`
 
@@ -42,7 +33,7 @@ If you run into issues with the code email me at andrewswkim47@gmail.com
 
 ## Technologies Used
 
-React, create-react-app which packages our node modules, react-reveal, and react-bootstrap for UI
+React, create-react-app which packages our node modules, react-reveal, React Redux.
 
 ## License
 
