@@ -18,9 +18,6 @@ export default (state = {}, action) => {
       const newState = { ...state };
       delete newState[id];
       return newState;
-    case c.EDIT_KEG:
-      const { type, data } = action;
-      return state.map(keg => keg.id === data.id ? data : keg);
   default:
     return state;
   }

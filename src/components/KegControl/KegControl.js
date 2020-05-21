@@ -18,15 +18,14 @@ import Reveal from 'react-reveal/Reveal';
 import Button from 'react-bootstrap/Button';
 import { connect } from 'react-redux';
 import PropTypes from "prop-types";
-import * as a from './../actions';
-
+import * as a from './../../actions';
 
 class KegControl extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      // masterKegList: FakeKegList([]),
+      masterKegList: FakeKegList([]),
       selectedKeg: null,
       editing: false,
     };
@@ -63,7 +62,9 @@ class KegControl extends React.Component {
     const { dispatch } = this.props;
     const action = a.deleteKeg(id)
     dispatch(action);
-    this.setState({selectedKeg: null});
+    this.setState({
+      selectedKeg: null
+    });
   }
 
 handleEditClick = () => {

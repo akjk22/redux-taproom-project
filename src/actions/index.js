@@ -1,12 +1,4 @@
-export const selectKeg = id => ({
-  type: 'SELECT_KEG',
-  id
-});
-
-export const editKeg = id => ({
-  type: 'EDIT_KEG',
-  id
-});
+import * as c from './../actions/ActionTypes';
 
 export const deleteKeg = id => ({
   type: 'DELETE_KEG',
